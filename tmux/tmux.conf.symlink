@@ -46,3 +46,6 @@ set-option -g message-fg colour196 #orange
 # pane number display
 set-option -g display-panes-active-colour colour20 #blue
 set-option -g display-panes-colour colour196 #orange
+
+# fix user namespace issues
+set-option -g default-command "which reattach-to-user-namespace > /dev/null && reattach-to-user-namespace -l $SHELL || $SHELL"
