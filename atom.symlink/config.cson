@@ -3,7 +3,8 @@
     showIndentGuide: true
     fontFamily: "Menlo"
     invisibles: {}
-    fontSize: 10
+    softWrapAtPreferredLineLength: true
+    fontSize: 15
   core:
     ignoredNames: [
       ".bundle"
@@ -14,8 +15,8 @@
       "vendor"
     ]
     themes: [
-      "atom-dark-ui"
-      "solarized-light-syntax"
+      "unity-ui"
+      "glacier-syntax"
     ]
     hideGitIgnoredFiles: true
     disabledPackages: [
@@ -33,4 +34,3 @@
     showOnStartup: false
   "release-notes":
     viewedVersion: "0.89.0"
-  "go-plus": {}
