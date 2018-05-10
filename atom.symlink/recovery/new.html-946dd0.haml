@@ -1,0 +1,56 @@
+- content_for(:header) do
+  %p
+    = t(".title")
+  %p
+    = t(".title_description_html")
+
+= render "error_messages", errors: enrollment.errors
+
+= form_for enrollment, url: enrollment_google_directory_path(contract) do |f|
+  = hidden_field_tag :option, params[:option]
+  = hidden_field_tag :token
+  = submit_tag nil, class: "hidden"
+
+  %p.text-center
+    = t(".work_email_html", name: contract.name)
+
+  %p.text-center
+    %span#google-eligibility-check
+      %span#google-icon
+      %span#google-text
+        = t(".check_eligibility")
+
+= javascript_include_tag "https://apis.google.com/js/api:client.js"
+
+:javascript
+  gapi.load("auth2", function() {
+    var auth2 = gapi.auth2.init({
+      client_id: "#{Rails.application.secrets.google_api[:client_id]}"
+    });
+
+    $("#google-eligibility-check").on("click", function() {
+      auth2.signIn({ prompt: "select_account" }).then(function(user) {
+        $("#google-eligibility-check").off("click").addClass("disabled");
+        $("#google-eligibility-check #google-text").text("#{t(".eligibility_checked")}");
+
+        var form = $("form#new_enrollment");
+
+        form.find("input#token").val(user.getAuthResponse(true).access_token);
+        form.trigger("submit");
+      }, function(data) {
+        debugger;
+        FlashMessage.clear();
+
+        switch(data.error) {
+          case "popup_closed_by_user"
+        }
+
+        let friendly_message = "#{t(".unknown_error")}"
+        if (data.error == "popup_closed_by_user") {
+          friendly_message = "#{t(".popup_closed_by_user")}"
+        }
+
+        FlashMessage.add("error", "#{t(".unknown_error")}" + JSON.stringify(data));
+      });
+    });
+  });

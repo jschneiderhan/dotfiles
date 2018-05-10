@@ -1,11 +1,13 @@
 "*":
-  editor:
-    showIndentGuide: true
-    fontFamily: "Menlo"
-    invisibles: {}
-    softWrapAtPreferredLineLength: true
-    fontSize: 15
+  autosave:
+    enabled: true
   core:
+    disabledPackages: [
+      "background-tips"
+      "exception-reporting"
+      "metrics"
+    ]
+    hideGitIgnoredFiles: true
     ignoredNames: [
       ".bundle"
       ".git"
@@ -14,23 +16,26 @@
       "tmp"
       "vendor"
     ]
+    telemetryConsent: "limited"
     themes: [
-      "unity-ui"
-      "glacier-syntax"
+      "one-dark-ui"
+      "solarized-dark-syntax"
     ]
-    hideGitIgnoredFiles: true
-    disabledPackages: [
-      "background-tips"
-      "exception-reporting"
-      "metrics"
-    ]
+  editor:
+    fontFamily: "Menlo"
+    fontSize: 12
+    invisibles: {}
+    showIndentGuide: true
+    softWrapAtPreferredLineLength: true
+  "release-notes":
+    viewedVersion: "0.89.0"
   "spell-check":
     grammars: [
       "text.plain"
       "source.gfm"
       "text.git-commit"
     ]
+  "tree-view":
+    hideVcsIgnoredFiles: true
   welcome:
     showOnStartup: false
-  "release-notes":
-    viewedVersion: "0.89.0"

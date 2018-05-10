@@ -38,4 +38,6 @@ do
   source $file
 done
 
+export HIST_IGNORE_SPACE=1
+
 unset config_files

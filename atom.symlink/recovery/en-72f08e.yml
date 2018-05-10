@@ -1,0 +1,8 @@
+en:
+  operations_mailer:
+    new_customer_operations_alert:
+      subject: "%{company_name} just became a customer! [%{rails_environment}]"
+      intro: A new SaaS implementation has been created with the following details.
+      details:
+        company_name_html: "Company name: %{snap_link}"
+        billing_plan: "Billing plan: %{name}, price: %{price}"

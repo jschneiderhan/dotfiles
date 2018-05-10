@@ -1,8 +1,15 @@
 execute pathogen#infect()
 
+set nocompatible      " We're running Vim, not Vi!
 syntax enable
 set background=dark
 colorscheme solarized
 
+set backspace=indent,eol,start
+
 " Wrap gitcommit file types at the appropriate length
 filetype indent plugin on
+
+" Start NERDTree on startup and move to main pane
+autocmd VimEnter * NERDTree
+autocmd VimEnter * wincmd p

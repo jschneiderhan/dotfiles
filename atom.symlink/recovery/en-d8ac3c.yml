@@ -1,0 +1,16 @@
+en:
+  enrollments:
+    google_directory:
+      new:
+        title: Hi there!
+        title_description_html: |
+          First, let's check if you're eligible for this program. 
+          <br />
+          Later on, you'll create your account.
+        work_email_html: "Please use your <b>%{name}</b> email on the next screen. This lets us know it's you!"
+        check_eligibility: Check my eligibility with Google
+        eligibility_checked: Processing...
+        popup_closed_by_user: 
+        access_denied:
+        immediate_failed:
+        unknown_error: "An unknown error occurred: "
